@@ -1,67 +1,7 @@
-﻿
-<!-- 这是 PCL2 的主页自定义文件。你可以通过修改这个文件来自定义你的 PCL2 主页：添加文本、打开网页、启动游戏等等。目前它还不能做到太多事情，但将来会变得越来越强大。
-     如果你倒腾这个文件把 PCL2 玩炸了，把这个文件直接删除就行了。
-     如果你懂得 WPF 的布局文件编写，你甚至可以做出不少的新玩意儿…… -->
-
-<local:MyCard Title="教学卡片 1：纯文本" Margin="0,0,0,15">
-    <StackPanel Margin="25,40,23,15">
-        <TextBlock TextWrapping="Wrap" Margin="0,0,0,2"
-                   Text="每个 local:MyCard 代表一张卡片，你可以添加、删除格式类似的 MyCard 来添加多个卡片。每个 TextBlock 代表一段文本，你可以在 Text 中书写任何你想写的内容。你也可以自行添加更多的 TextBlock。" />
-        <TextBlock TextWrapping="Wrap" Margin="0,0,0,2" Foreground="#FF21778C" Background="#5F8CEAD4"
-                   Text="你可以添加 Foreground 调整字体颜色，添加 Background 调整背景颜色。颜色开头的两位为透明度，例如 FF 为全不透明，00 为全透明。" />
-        <TextBlock TextWrapping="Wrap" Margin="20,10,0,12" FontSize="12"
-                   Text="它还有许多可以调整的属性：修改 Margin 调整边距（例如这段文本的边距就被增加了不少），添加 FontSize 调整字号，TextWrapping 则是启用自动换行。" />
-    </StackPanel>
-</local:MyCard>
-
-<local:MyCard Title="教学卡片 2：卡片属性与长宽限定" Margin="0,0,0,15" CanSwap="True" IsSwaped="True">
-    <StackPanel Margin="25,40,23,15">
-        <TextBlock TextWrapping="Wrap" Margin="0,0,0,2"
-                   Text="卡片的 Title 决定了它的标题，它也可以没有 Title 属性。" />
-        <TextBlock TextWrapping="Wrap" Margin="0,0,0,2"
-                   Text="为卡片添加 CanSwap 属性让它可以被折叠，True 代表是，False 代表否。在此基础上，再添加 IsSwaped 属性可以调整它是否默认被折叠。" />
-        <TextBlock TextWrapping="Wrap" Margin="0,0,0,2" Width="300" HorizontalAlignment="Center"
-                   Text="任意项目都可以添加 Width 与 Height 属性来控制宽高，并且通过 HorizontalAlignment 来控制对齐。例如这段文本的宽度只有 300，且要求居中。" />
-    </StackPanel>
-</local:MyCard>
-
-<local:MyCard Title="教学卡片 3：按钮基础" Margin="0,0,0,15">
-    <StackPanel Margin="25,40,23,15">
-        <TextBlock TextWrapping="Wrap" Margin="0,0,0,2"
-                   Text="你可以通过添加 local:MyButton 来新建一个按钮。你需要通过上一张卡片中提到的宽高属性来限定它的尺寸与位置，通过 Padding 属性控制它的内边距。" />
-        <TextBlock TextWrapping="Wrap" Margin="0,0,0,10"
-                   Text="为按钮添加 Tag 属性可以让它打开一个网页，例如下方的按钮即可打开 Minecraft 中文论坛。将链接换成文件路径也可以用来打开本地的程序。" />
-        <local:MyButton Margin="0,0,0,2" Width="140" Height="35" HorizontalAlignment="Left" Padding="13,0,13,0"
-                   Text="打开 MCBBS" Tag="链接-https://www.mcbbs.net/" />
-    </StackPanel>
-</local:MyCard>
-
-<local:MyCard Title="教学卡片 4：按钮进阶" Margin="0,0,0,15">
-    <StackPanel Margin="25,40,23,15">
-        <TextBlock TextWrapping="Wrap" Margin="0,0,0,2"
-                   Text="你可以为按钮添加 ColorType 属性来调整它的配色，Highlight 代表亮色，Red 代表红色，不添加这个属性代表黑色。添加 ToolTip 属性可以让你在鼠标悬浮在上面的时候显示提示文本。" />
-        <TextBlock TextWrapping="Wrap" Margin="0,0,0,2"
-                   Text="在 Tag 中书写 启动-版本名 可以快捷启动当前 Minecraft 文件夹中的某个特定版本，例如下方的按钮就能启动 1.12.2。如果没有找到对应版本则会显示错误信息。" />
-        <local:MyButton Margin="0,8,0,2" Width="200" Height="35" HorizontalAlignment="Center" Padding="13,0,13,0" ColorType="Highlight"
-                   Text="启动 Minecraft 1.12.2" Tag="启动-1.12.2" ToolTip="点击这个按钮启动 Minecraft 1.12.2！" />
-    </StackPanel>
-</local:MyCard>
-
-<local:MyCard Title="教学卡片 5：复杂布局" Margin="0,0,0,15">
-    <StackPanel Margin="25,40,23,15">
-        <TextBlock TextWrapping="Wrap" Margin="0,0,0,2"
-                   Text="你需要用到 StackPanel 在一横行里塞下多个按钮。你可以仅在这个教学卡片的基础上稍作调整，来实现自己的按钮布局。" />
-        <TextBlock TextWrapping="Wrap" Margin="0,0,0,10"
-                   Text="如果你要实现更复杂的布局，你必须使用 Grid 等控件。多百度吧……谷歌也行。" />
-        <StackPanel Orientation="Horizontal">
-            <local:MyButton Margin="0,0,20,2" Width="140" Height="35" HorizontalAlignment="Left" Padding="13,0,13,0" ColorType="Highlight"
-                   Text="启动 1.12.2" Tag="启动-1.12.2" />
-            <local:MyButton Margin="0,0,20,2" Width="140" Height="35" HorizontalAlignment="Left" Padding="13,0,13,0"
-                   Text="打开记事本" Tag="链接-notepad" />
-            <local:MyButton Margin="0,0,20,2" Width="140" Height="35" HorizontalAlignment="Left" Padding="13,0,13,0"
-                   Text="赞助作者" Tag="链接-https://afdian.net/@LTCat" />
-        </StackPanel>
-    </StackPanel>
+﻿<local:MyCard Title="每日一言" Margin="0,0,0,15">
+	<StackPanel Margin="25,40,23,15">
+		<TextBlock TextWrapping="Wrap" Margin="0,0,0,2" Text="美好的一天从启动MC开始."/>
+	</StackPanel>
 </local:MyCard>
 
 <!-- 
@@ -86,7 +26,7 @@ local:MyButton 属性：
  - Padding：设置内边距，格式与 Margin 一致
  - ColorType：设置颜色主题（Normal、Highlight、Red 三选一，默认为 Normal）
  - Tag：设置点击时的操作
-     Tag="启动-1.12.2"：点击时启用当前 Minecraft 文件夹下的 1.12.2 版本，如果没有则弹出错误提示
+	 Tag="启动-1.12.2"：点击时启用当前 Minecraft 文件夹下的 1.12.2 版本，如果没有则弹出错误提示
 	 Tag="链接-https://www.baidu.com/"：点击时打开网页
 
 local:MyCard 属性：
